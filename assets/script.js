@@ -16,32 +16,33 @@ questionsArray.push(question1);
 
 
 function runGame(event){
+    event.stopPropagation();
+
    var questionText = document.createElement("section");
    questionText.textContent = questionsArray[0].question;
    game.appendChild(questionText);
 
-   var option1 = document.createElement("section")
-   var option1button = document.createElement("input");
-   option1button.setAttribute("type", "radio");
-   option1button.setAttribute("name", "option 1");
+   var option1 = document.createElement("button");
+   option1.setAttribute("id", "incorrect2");
+   option1.textContent = questionsArray[0].incorrect2;
+   game.appendChild(option1);
+   
 
+   var option2 = document.createElement("button");
+   option2.setAttribute("id", "incorrect1");
+   option2.textContent = questionsArray[0].incorrect1;
+   game.appendChild(option2);
 
-   var option2 = document.createElement("input");
-   option2.setAttribute("type", "radio");
-   option1.setAttribute("name", "option 2")
-
-   var option3 = document.createElement("input");
-   option3.setAttribute("type", "radio");
-   option3.setAttribute("name", "option 3");
+   var option3 = document.createElement("button");
+   option3.setAttribute("id", "correct");
+   option3.textContent = questionsArray[0].correct;
+   game.appendChild(option3);
 
    
-   var option4 = document.createElement("input");
-   option4.setAttribute("type", "radio");
-   option3.setAttribute("name", "option 4");
-
-
-
-
+   var option4 = document.createElement("button");
+   option4.setAttribute("id", "incorrect3");
+   option4.textContent = questionsArray[0].incorrect3;
+   game.appendChild(option4);
 }
 
 gameStart.addEventListener("click", runGame);
