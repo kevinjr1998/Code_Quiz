@@ -30,7 +30,8 @@ question2 = {
     correctIndex: 0,
     incorrect1Index: 2,
     incorrect2index: 1,
-    incorrect3Index: 3
+    incorrect3Index: 3,
+    optionOrder: [0,1,2,3]
 }
 
 questionsArray.push(question2);
@@ -141,15 +142,16 @@ function runGame(event){
                event.stopPropagation();
                gameScore();
                game.textContent = "";
+               questionIndex++;
                runGame(event);
+
            })   
         } else {
             answerOrder[i].addEventListener("click", function(event){ 
             event.stopPropagation();
             secondsLeft = secondsLeft - 2;
             game.textContent = "";
-            
-            // gameTimer(0);
+            questionIndex++;
             
             runGame(event);
             })       
