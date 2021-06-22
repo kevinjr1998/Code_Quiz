@@ -57,6 +57,9 @@ var secondsLeft = 10;
 function runGame(event){
 
     event.stopPropagation();
+    document.removeEventListener("click", gameStart);
+
+    
 
   
 
@@ -79,7 +82,7 @@ function runGame(event){
 
 
     option1 = document.createElement("button");
-    option1.setAttribute("class", "answer");
+    option1.setAttribute("class", "correct");
     option1.textContent = questionsArray[questionIndex].correct;
 
 
@@ -97,7 +100,7 @@ function runGame(event){
     var option4 = questionsArray[questionIndex].incorrect3Index;
 
     option4 = document.createElement("button");
-    option4.setAttribute("class", "answer");
+    option4.setAttribute("class", "");
     option4.textContent = questionsArray[questionIndex].incorrect3;
 
 
@@ -111,53 +114,38 @@ function runGame(event){
     }
   
 
+    option1.addEventListener("click", function(event){
+        event.stopPropagation();
+        gameScore();
+        game.textContent = "";
+        questionIndex++;
+        runGame(event);
 
-//    var option1 = document.createElement("button");
-//    option1.setAttribute("class", "answer");
-//    option1.textContent = questionsArray[questionIndex].incorrect2;
-//    game.appendChild(option1);
-   
+    });
 
-//    var option2 = document.createElement("button");
-//    option2.setAttribute("id", "incorrect1");
-//    option2.textContent = questionsArray[0].incorrect1;
-//    game.appendChild(option2);
+    option2.addEventListener("click", function(event){ 
+        event.stopPropagation();
+        secondsLeft = secondsLeft - 2;
+        game.textContent = "";
+        questionIndex++;
+        runGame(event);
+    });
 
-//    var option3 = document.createElement("button");
-//    option3.setAttribute("id", "correct");
-//    option3.textContent = questionsArray[0].correct;
-//    game.appendChild(option3);
+    option3.addEventListener("click", function(event){ 
+        event.stopPropagation();
+        secondsLeft = secondsLeft - 2;
+        game.textContent = "";
+        questionIndex++;
+        runGame(event);
+    });
 
-//    var option4 = document.createElement("button");
-//    option4.setAttribute("id", "incorrect3");
-//    option4.textContent = questionsArray[0].incorrect3;
-//    game.appendChild(option4);
-
-   
-
-
-   for (var i = 0; i < 3; i++){
-       if (questionAnswersArray[questionsArray.correctIndex] == i)  {
-           answerOrder[i].addEventListener("click", function(event){
-               event.stopPropagation();
-               gameScore();
-               game.textContent = "";
-               questionIndex++;
-               runGame(event);
-
-           })   
-        } else {
-            answerOrder[i].addEventListener("click", function(event){ 
-            event.stopPropagation();
-            secondsLeft = secondsLeft - 2;
-            game.textContent = "";
-            questionIndex++;
-            
-            runGame(event);
-            })       
-        }
-        
-    }
+   option4.addEventListener("click", function(event){ 
+        event.stopPropagation();
+        secondsLeft = secondsLeft - 2;
+        game.textContent = "";
+        questionIndex++;
+        runGame(event);
+    });
 
 }
 
