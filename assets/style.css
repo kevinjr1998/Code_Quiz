@@ -1,0 +1,121 @@
+:root{
+    --header_footer-color: rgb(92, 92, 197);
+    --back-ground-color: rgb(77, 170, 170);
+    --elBorder: 2px solid black;
+    --text-background: rgb(146, 146, 223);
+}
+
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--back-ground-color);
+    margin: 2vw;
+
+     
+}
+
+header{
+    background-color: var(--header_footer-color);
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    border:var(--elBorder);
+}
+
+#gameStart{
+    padding: 2vw 5vw;
+    font-size: 5vw;
+    height: 15vw;
+}
+
+#game-area{
+    display: flex;
+    height: 70vw;
+}
+
+#game {
+    display: flex;
+    width: 75%;
+    /* height: 70vw; */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#gameStats{
+    width: 20%;
+    height: 70vw;
+}
+
+.float_left{
+    float: left;
+}
+
+.float_right{
+    float: right;
+}
+
+
+#playerName{
+    height: 2rem;
+}
+
+#Game_Over{
+    width: 100%;
+    font-size: 5rem;
+    text-align: center;
+    border: var(--elBorder);
+    background-color: var(--text-background);
+    padding-bottom: 6rem;
+    margin-bottom: .5rem;
+
+}
+
+.question{
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    border: var(--elBorder);
+    background-color: var(--text-background);
+    
+}
+
+#score{
+    font-size: 1.3rem;
+    text-align: center;
+    border:var(--elBorder);
+    background-color: var(--text-background);
+}
+
+#highScore{
+    font-size: 1.5rem;
+    text-align: center;
+    border:var(--elBorder);
+    background-color: var(--text-background);
+}
+
+#Player_Name{
+    font-size: 1.5rem;
+    width: 8rem;
+}
+
+label{
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+
+#yourScore{
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: -5rem;
+}
+
+button{
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 1.5rem;
+}

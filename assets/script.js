@@ -59,7 +59,7 @@ function gameScore(){
 }
 var questionIndex = 0;
 
-var secondsLeft = 2;
+// var secondsLeft = 2;
 
 function runGame(event){
 
@@ -73,6 +73,9 @@ function runGame(event){
         return;
     }
 
+    if(questionIndex == 0){
+        scoreCounter.textContent = "Score: " + score;
+    }
   
 
     var questionAnswersArray = [0, 1, 2, 3];
@@ -85,7 +88,7 @@ function runGame(event){
 
 
     var questionText = document.createElement("section");
-    questionText.setAttribute("class", "answer");
+    questionText.setAttribute("class", "question");
     questionText.textContent = questionsArray[questionIndex].question;
     game.appendChild(questionText);
 
@@ -94,7 +97,7 @@ function runGame(event){
 
 
     option1 = document.createElement("button");
-    option1.setAttribute("class", "correct");
+    option1.setAttribute("class", "answer");
     option1.textContent = questionsArray[questionIndex].correct;
 
 
@@ -140,6 +143,7 @@ function runGame(event){
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
         runGame(event);
+        questionIndex++;
     });
 
     option3.addEventListener("click", function(event){ 
@@ -147,6 +151,7 @@ function runGame(event){
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
         runGame(event);
+        questionIndex++;
     });
 
    option4.addEventListener("click", function(event){ 
@@ -154,6 +159,7 @@ function runGame(event){
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
         runGame(event);
+        questionIndex++;
     });
 
 }
@@ -168,6 +174,12 @@ function gameOver(){
     playerName.setAttribute("type", "text");
     playerName.setAttribute("value", "");
     playerName.setAttribute("id", "Player_Name");
+
+    var yourScore = document.createElement("section");
+    yourScore.setAttribute("id", "yourScore");
+    yourScore.textContent = "Your Score: " + score;
+
+    
     
     var playerNameLabel = document.createElement("label");
     playerNameLabel.innerHTML = "Enter Your Name:";
@@ -181,7 +193,7 @@ function gameOver(){
     replayGame.textContent = "Press to Play Again";
 
     game.appendChild(gameOverEl);
-
+    game.appendChild(yourScore);
 
     if (score >= localStorage.getItem("score")){
 
