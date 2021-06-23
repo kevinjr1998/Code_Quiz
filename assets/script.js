@@ -2,6 +2,7 @@ var gameStart = document.getElementById("gameStart");
 var game = document.getElementById("game");
 var timer = document.getElementById("timer");
 var scoreCounter = document.getElementById("score");
+var highScore = document.getElementById("highScore");
 
 var questionsArray = [];
 
@@ -36,13 +37,19 @@ question2 = {
 
 questionsArray.push(question2);
 
-// function gameTimer(penalty){
-//     var timerInverval = setInterval(function(){
 
 
-//     })
 
-// }
+var highScoreStored = document.createElement("section");
+highScoreStored.setAttribute("id", "highScoreStored");
+highScoreStored.textContent = "High Score: " + localStorage.getItem("Score");
+highScore.appendChild(highScoreStored);
+
+var highScoreName = document.createElement("section");
+highScoreName.setAttribute("id", "highScoreName");
+highScoreName.textContent = "Player: " + localStorage.getItem("playerName");
+highScore.appendChild(highScoreName);
+
 
 var score = 0;
 
@@ -52,14 +59,19 @@ function gameScore(){
 }
 var questionIndex = 0;
 
-var secondsLeft = 10;
+var secondsLeft = 2;
 
 function runGame(event){
+
+    gameStart.remove();
 
     event.stopPropagation();
     document.removeEventListener("click", gameStart);
 
-    
+    if (questionIndex == questionsArray.length){
+        gameOver();
+        return;
+    }
 
   
 
@@ -127,7 +139,6 @@ function runGame(event){
         event.stopPropagation();
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
-        questionIndex++;
         runGame(event);
     });
 
@@ -135,7 +146,6 @@ function runGame(event){
         event.stopPropagation();
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
-        questionIndex++;
         runGame(event);
     });
 
@@ -143,10 +153,62 @@ function runGame(event){
         event.stopPropagation();
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
-        questionIndex++;
         runGame(event);
     });
 
+}
+
+function gameOver(){
+    game.textContent = "";
+    var gameOverEl = document.createElement("section");
+    gameOverEl.setAttribute("id", "Game_Over");
+    gameOverEl.textContent = "Game Over";
+
+    var playerName = document.createElement("input");
+    playerName.setAttribute("type", "text");
+    playerName.setAttribute("value", "");
+    playerName.setAttribute("id", "Player_Name");
+    
+    var playerNameLabel = document.createElement("label");
+    playerNameLabel.innerHTML = "Enter Your Name:";
+
+    var submitScore = document.createElement("button");
+    submitScore.setAttribute("id", "submit_score");
+    submitScore.textContent = "Submit";
+
+    var replayGame = document.createElement("button");
+    replayGame.setAttribute("id", "replayGame");
+    replayGame.textContent = "Press to Play Again";
+
+    game.appendChild(gameOverEl);
+
+
+    if (score >= localStorage.getItem("score")){
+
+
+    
+         game.appendChild(playerNameLabel);
+         game.appendChild(playerName);
+         game.appendChild(submitScore);
+
+        submitScore.addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+
+            localStorage.setItem("playerName", playerName.value);
+            localStorage.setItem("Score", score);
+            playerName.textContent = "";
+
+
+        })
+
+    }
+
+    game.appendChild(replayGame);
+
+    replayGame.addEventListener("click", function(){
+        location.reload();
+    })
 }
 
 
@@ -160,8 +222,7 @@ function gameTimer(){
 
            if(secondsLeft < 1) {
               clearInterval(timerInterval);
-              game.textContent = "";
-              // sendMessage();
+              gameOver();
            }
       }, 1000)
     }
