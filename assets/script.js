@@ -7,7 +7,7 @@ var highScore = document.getElementById("highScore");
 var questionsArray = [];
 
 question1 = {
-    question: "How do you write an if statement in JavaScript?",
+    question: "How do you write an 'if' statement in JavaScript?",
     correct: "if(condition){Code to exectute if condition met}",
     incorrect1: "if(code to execute if condition met){ condition }",
     incorrect2: "if({code to execute if conditon met} condition)",
@@ -23,7 +23,7 @@ questionsArray.push(question1);
 
 
 question2 = {
-    question: "What type of variable numberOfFruits is the following: var numberofFruits = 3; ?",
+    question: "What type of variable 'numberOfFruits' is the following: var numberOfFruits = 3; ?",
     correct: "number",
     incorrect1: "string",
     incorrect2: "boolean",
@@ -37,6 +37,20 @@ question2 = {
 
 questionsArray.push(question2);
 
+question3 = {
+    question: "Which method will set a variable as a HTML element?",
+    correct: "getAttribute()",
+    incorrect1: "setAttribute()",
+    incorrect2: "createElement()",
+    incorrect3: "appendChild()",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [1,0,3,2]
+}
+
+questionsArray.push(question3);
 
 
 
@@ -59,7 +73,7 @@ function gameScore(){
 }
 var questionIndex = 0;
 
-// var secondsLeft = 2;
+var secondsLeft = 11;
 
 function runGame(event){
 
@@ -76,15 +90,6 @@ function runGame(event){
     if(questionIndex == 0){
         scoreCounter.textContent = "Score: " + score;
     }
-  
-
-    var questionAnswersArray = [0, 1, 2, 3];
-
-    
-    questionAnswersArray[questionsArray[questionIndex].correctIndex] = questionsArray[questionIndex].correct;
-    questionAnswersArray[questionsArray[questionIndex].incorrect1Index] = questionsArray[questionIndex].incorrect1;
-    questionAnswersArray[questionsArray[questionIndex].incorrect2index] = questionsArray[questionIndex].incorrect2;
-    questionAnswersArray[questionsArray[questionIndex].incorrect3Index] = questionsArray[questionIndex].incorrect3;
 
 
     var questionText = document.createElement("section");
@@ -115,7 +120,7 @@ function runGame(event){
     var option4 = questionsArray[questionIndex].incorrect3Index;
 
     option4 = document.createElement("button");
-    option4.setAttribute("class", "");
+    option4.setAttribute("class", "answer");
     option4.textContent = questionsArray[questionIndex].incorrect3;
 
 
@@ -135,7 +140,7 @@ function runGame(event){
         game.textContent = "";
         questionIndex++;
         runGame(event);
-
+       
     });
 
     option2.addEventListener("click", function(event){ 
@@ -143,7 +148,6 @@ function runGame(event){
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
         runGame(event);
-        questionIndex++;
     });
 
     option3.addEventListener("click", function(event){ 
@@ -151,7 +155,6 @@ function runGame(event){
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
         runGame(event);
-        questionIndex++;
     });
 
    option4.addEventListener("click", function(event){ 
@@ -159,12 +162,12 @@ function runGame(event){
         secondsLeft = secondsLeft - 2;
         game.textContent = "";
         runGame(event);
-        questionIndex++;
     });
 
 }
 
 function gameOver(){
+    secondsLeft = 0;
     game.textContent = "";
     var gameOverEl = document.createElement("section");
     gameOverEl.setAttribute("id", "Game_Over");

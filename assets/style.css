@@ -11,8 +11,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--back-ground-color);
     margin: 2vw;
-
-     
+    height: 80vh;
 }
 
 header{
@@ -33,20 +32,27 @@ h1 {
 
 #game-area{
     display: flex;
-    height: 70vw;
+    height: 70vh;
 }
 
 #game {
     display: flex;
     width: 75%;
-    /* height: 70vw; */
+    height: 40vh;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 #gameStats{
     width: 20%;
-    height: 70vw;
+    height: 70vh;
+}
+
+#timer{
+    font-size: 1.3rem;
+    text-align: center;
+    border:var(--elBorder);
+    background-color: var(--text-background);
 }
 
 .float_left{
@@ -58,9 +64,9 @@ h1 {
 }
 
 
-#playerName{
-    height: 2rem;
-}
+/* #playerName{
+    height: 1.5rem;
+} */
 
 #Game_Over{
     width: 100%;
@@ -79,7 +85,7 @@ h1 {
     text-align: center;
     border: var(--elBorder);
     background-color: var(--text-background);
-    
+    height: 20vh;
 }
 
 #score{
@@ -87,6 +93,7 @@ h1 {
     text-align: center;
     border:var(--elBorder);
     background-color: var(--text-background);
+    margin-bottom: .5rem;
 }
 
 #highScore{
@@ -94,17 +101,32 @@ h1 {
     text-align: center;
     border:var(--elBorder);
     background-color: var(--text-background);
+    margin-bottom: .5rem;
 }
 
 #Player_Name{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 8rem;
+    height: 1.5rem;
+    align-self: center;
+}
+
+#replayGame, #submit_score{
+    height: 2.5rem;
+    align-self: center;
+}
+
+footer{
+    background-color: var(--header_footer-color);
+    display: block;
 }
 
 label{
     font-size: 1.5rem;
     align-self: center;
 }
+
+
 
 
 #yourScore{
@@ -118,4 +140,5 @@ button{
     border-radius: 5px;
     margin: 5px;
     font-size: 1.5rem;
+    height: 3rem;
 }
