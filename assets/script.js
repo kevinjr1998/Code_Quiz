@@ -7,11 +7,11 @@ var highScore = document.getElementById("highScore");
 var questionsArray = [];
 
 question1 = {
-    question: "How do you write an 'if' statement in JavaScript?",
-    correct: "if(condition){Code to exectute if condition met}",
-    incorrect1: "if(code to execute if condition met){ condition }",
-    incorrect2: "if({code to execute if conditon met} condition)",
-    incorrect3: "if{condition(code to execute if condition met)}",
+    question: "How do you write an 'if' statement for when i is equal to 5?",
+    correct: "if(i==5) then",
+    incorrect1: "if i = 5 then",
+    incorrect2: "if i == 5 then",
+    incorrect3: "i = 5 then",
     correctIndex: 2,
     incorrect1Index: 3,
     incorrect2index: 1,
@@ -38,7 +38,7 @@ question2 = {
 questionsArray.push(question2);
 
 question3 = {
-    question: "Which method will set a variable as a HTML element?",
+    question: "Which method will set a HTML element as a variable.?",
     correct: "getAttribute()",
     incorrect1: "setAttribute()",
     incorrect2: "createElement()",
@@ -51,6 +51,111 @@ question3 = {
 }
 
 questionsArray.push(question3);
+
+question4 = {
+    question: "What is the method to write 'Hello World' to an alert box?",
+    correct: "alert('Hello World')",
+    incorrect1: "prompt('Hello World')",
+    incorrect2: "text('Hello World')",
+    incorrect3: "console.log('Hello World')",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [2,3,1,0]
+}
+
+questionsArray.push(question4);
+
+question5 = {
+    question: "How do you add a comment in JavaScript?",
+    correct: "//this is a comment",
+    incorrect1: "<!-- this is a comment -->",
+    incorrect2: "'this is a comment'",
+    incorrect3: "(this is a comment)",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [2,0,1,3]
+}
+
+questionsArray.push(question5);
+
+question6 = {
+    question: "Which event occurs when the user clicks on an HTML element?",
+    correct: "onclick",
+    incorrect1: "onfocus",
+    incorrect2: "onchange",
+    incorrect3: "onmousehover",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [2,1,0,3]
+}
+
+questionsArray.push(question6);
+
+question7 = {
+    question: "Which values is used to assign a variable a value?",
+    correct: "=",
+    incorrect1: "-",
+    incorrect2: "+",
+    incorrect3: "*",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [0,2,3,1]
+}
+
+questionsArray.push(question7);
+
+question8 = {
+    question: "What is the correct syntax for referring to an external script called 'script.js'?",
+    correct: "<script src='script.js'>",
+    incorrect1: "<script is script.js>",
+    incorrect2: "<script = 'script.js'>",
+    incorrect3: "<script src == script.js>",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [2,1,3,0]
+}
+
+questionsArray.push(question8);
+
+question9 = {
+    question: "What type will 'test' be in the following?: var test ",
+    correct: "undefined",
+    incorrect1: "string",
+    incorrect2: "boolean",
+    incorrect3: "number",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [1,0,2,3]
+}
+
+questionsArray.push(question9);
+
+question10 = {
+    question: " How do you add data items to local storage?",
+    correct: "localStorage.setItem('petName','Whiskers')",
+    incorrect1: "localStorage.setItem(petName Whiskers)",
+    incorrect2: "localStorage.getItem('petName','Whiskers')",
+    incorrect3: "localStorage.removeItem('petName')",
+    correctIndex: 0,
+    incorrect1Index: 2,
+    incorrect2index: 1,
+    incorrect3Index: 3,
+    optionOrder: [1,3,0,2]
+}
+
+questionsArray.push(question10);
 
 
 
@@ -73,7 +178,7 @@ function gameScore(){
 }
 var questionIndex = 0;
 
-var secondsLeft = 11;
+var secondsLeft = 41;
 
 function runGame(event){
 
@@ -91,7 +196,6 @@ function runGame(event){
         scoreCounter.textContent = "Score: " + score;
     }
 
-
     var questionText = document.createElement("section");
     questionText.setAttribute("class", "question");
     questionText.textContent = questionsArray[questionIndex].question;
@@ -99,15 +203,12 @@ function runGame(event){
 
    
     var option1 = questionsArray[questionIndex].correctIndex;
-
-
     option1 = document.createElement("button");
     option1.setAttribute("class", "answer");
     option1.textContent = questionsArray[questionIndex].correct;
 
 
     var option2 = questionsArray[questionIndex].incorrect1Index;
-
     option2 = document.createElement("button");
     option2.setAttribute("class", "answer");
     option2.textContent = questionsArray[questionIndex].incorrect1;
@@ -118,16 +219,11 @@ function runGame(event){
     option3.textContent = questionsArray[questionIndex].incorrect2;
 
     var option4 = questionsArray[questionIndex].incorrect3Index;
-
     option4 = document.createElement("button");
     option4.setAttribute("class", "answer");
     option4.textContent = questionsArray[questionIndex].incorrect3;
 
-
     var answerOrder = [option1, option2, option3, option4];
-
-
-   
 
     for (var i = 0; i < 4; i++){
         game.appendChild(answerOrder[questionsArray[questionIndex].optionOrder[i]]);
@@ -198,7 +294,7 @@ function gameOver(){
     game.appendChild(gameOverEl);
     game.appendChild(yourScore);
 
-    if (score >= localStorage.getItem("score")){
+    if (score > localStorage.getItem("score")){
 
 
     
@@ -213,7 +309,8 @@ function gameOver(){
             localStorage.setItem("playerName", playerName.value);
             localStorage.setItem("Score", score);
             playerName.textContent = "";
-
+            highScoreName.textContent = "Player: " + localStorage.getItem("playerName");
+            highScoreStored.textContent = "High Score: " + localStorage.getItem("Score");
 
         })
 
