@@ -248,6 +248,7 @@ function runGame(event){
         event.stopPropagation();                       // display correct in  an element and will move on to the next question
         gameScore();
         questResult.textContent = "Correct!";
+        questResult.style.color = "green"
         game.textContent = "";
         questionIndex++;
         runGame(event);
@@ -324,6 +325,7 @@ function gameOver(){ //game over function
 function incorrectAns(event){ //runs incorrect answer event, deducts time from timer and reloads question, not increasing index of question array
     event.stopPropagation();
     questResult.textContent = "Incorrect!";
+    questResult.style.color = "red"
     secondsLeft = secondsLeft - 2;
     game.textContent = "";
     runGame(event);
@@ -342,7 +344,7 @@ function gameTimer(){ //this is the game timer function,
               clearInterval(timerInterval);
               gameOver();
            }
-      }, 1000)
+      }, 1000) //this function runs every 1000 milliseconds
     }
 }
 

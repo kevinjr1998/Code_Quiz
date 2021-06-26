@@ -24,73 +24,63 @@ h1 {
     border:var(--elBorder);
 }
 
-#gameStart{
-    padding: 2vw 5vw;
-    font-size: 5vw;
-    height: 15vw;
+/* changes css of buttons  */
+button{ 
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 1.5rem;
+    width: 40%;
+    flex: 0 0 40%;
+    /* overflow wrap is used to stop text from overflowing buttons */
+    overflow-wrap: break-word; 
 }
 
+
+/* initalises size of game area */
 #game-area{
     display: flex;
     height: 70vh;
 }
 
+
+/* sets property of gamestart button, sits in center of element. */
+
+#gameStart{
+    padding: 2vw 5vw;
+    font-size: 5vw;
+    height: 10vw;
+    justify-self: center;
+    align-self: center;
+}
+
+/* game elements set to flex  */
+
 #game {
     display: flex;
     width: 75%;
-    height: 40vh;
+    height: 70vh;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-#gameStats{
-    width: 20%;
-    height: 70vh;
-}
-
-#timer{
-    font-size: 1.3rem;
-    text-align: center;
-    border:var(--elBorder);
-    background-color: var(--text-background);
-}
-
-.float_left{
-    float: left;
-}
-
-.float_right{
-    float: right;
-}
-
-
-#Game_Over{
-    width: 100%;
-    font-size: 5rem;
-    text-align: center;
-    border: var(--elBorder);
-    background-color: var(--text-background);
-    padding-bottom: 6rem;
-    margin-bottom: .5rem;
-
-}
-
+/* holds and sets background for question */
 .question{
     width: 100%;
     font-size: 2rem;
     text-align: center;
+    justify-self: center;
     border: var(--elBorder);
     background-color: var(--text-background);
     height: 20vh;
 }
 
-#score{
-    font-size: 1.3rem;
-    text-align: center;
-    border:var(--elBorder);
-    background-color: var(--text-background);
-    margin-bottom: .5rem;
+/* tracks game stats, container element */
+#gameStats{
+    width: 20%;
+    height: 70vh;
 }
+
+/* holds high score */
 
 #highScore{
     font-size: 1.5rem;
@@ -106,7 +96,59 @@ h1 {
     height: 1.5rem;
     align-self: center;
 }
+/* element holds score */
+#score{
+    font-size: 1.3rem;
+    text-align: center;
+    border:var(--elBorder);
+    background-color: var(--text-background);
+    margin-bottom: .5rem;
+    height: 1.5rem;
+}
 
+/* element holds timer  */
+#timer{
+    font-size: 1.3rem;
+    text-align: center;
+    border:var(--elBorder);
+    background-color: var(--text-background);
+    height: 1.5rem;
+}
+
+/* utility css class for float*/
+
+.float_right{
+    float: right;
+}
+
+/* box that shows game over when game is over  */
+#Game_Over{
+    width: 100%;
+    font-size: 5rem;
+    text-align: center;
+    border: var(--elBorder);
+    background-color: var(--text-background);
+    padding-bottom: 6rem;
+    margin-bottom: .5rem;
+}
+
+/* shows final score top margin remove so that it sits inside game over box */
+#yourScore{
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: -5rem;
+    
+}
+/* this is for the player to input name to save high score. */
+#Player_Name{
+    font-size: 1.3rem;
+    width: 8rem;
+    height: 1.5rem;
+    align-self: center;
+}
+
+/* aligns high score and play again buttons */
 #replayGame, #submit_score{
     align-self: center;
 }
@@ -126,13 +168,7 @@ label{
     align-self: center;
 }
 
-#yourScore{
-    width: 100%;
-    font-size: 2rem;
-    text-align: center;
-    margin-top: -5rem;
-    height: 
-}
+/* shows whether the answer yous elected was correct or incorrect. */
 
 #questResult{
     font-size: 2rem;
@@ -140,17 +176,12 @@ label{
     border:var(--elBorder);
     background-color: var(--text-background);
     margin-top: .5rem;
-    color: red;
-}
-
-button{
-    border-radius: 5px;
-    margin: 5px;
-    font-size: 1.5rem;
-    width: 40%;
+    height: 2.1rem;
 
 }
 
+/* changes curso to pointer when button hovered */
 button:hover{
     cursor: pointer;
 }
+
