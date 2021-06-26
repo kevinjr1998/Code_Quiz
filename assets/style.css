@@ -153,7 +153,7 @@ button{
 }
 
 /* aligns high score and play again buttons */
-#replayGame, #submit_score{
+#replayGame, #submit_score, #Clear_High_Score{
     align-self: center;
 }
 

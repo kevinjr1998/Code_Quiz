@@ -289,6 +289,11 @@ function gameOver(){ //game over function
     var replayGame = document.createElement("button");
     replayGame.setAttribute("id", "replayGame");
     replayGame.textContent = "Press to Play Again"; //creates play again button.
+    
+    var clearHighScore = document.createElement("button");
+    clearHighScore.setAttribute("id", "Clear_High_Score");
+    clearHighScore.textContent = "Clear High Score";
+    
 
     game.appendChild(gameOverEl); //appends game over element and score element to the game element
     game.appendChild(yourScore);
@@ -316,18 +321,26 @@ function gameOver(){ //game over function
     }
 
     game.appendChild(replayGame); //adds replay game button to game element
+    game.appendChild(clearHighScore) //adds clear High Score button to element
 
     replayGame.addEventListener("click", function(){ //simply reloads the page upon clicking button.
         location.reload();
     })
+
+    clearHighScore.addEventListener("click", function(){
+        localStorage.clear();
+        highScoreName.textContent = "Player: " + localStorage.getItem("playerName");
+        highScoreStored.textContent = "High Score: " + localStorage.getItem("Score");
+    })
 }
 
-function incorrectAns(event){ //runs incorrect answer event, deducts time from timer and reloads question, not increasing index of question array
+function incorrectAns(event){ //runs incorrect answer event, deducts time from timer and advances question
     event.stopPropagation();
     questResult.textContent = "Incorrect!";
     questResult.style.color = "red"
     secondsLeft = secondsLeft - 2;
     game.textContent = "";
+    questionIndex++;
     runGame(event);
 }
 
