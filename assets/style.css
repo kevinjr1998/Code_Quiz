@@ -64,10 +64,6 @@ h1 {
 }
 
 
-/* #playerName{
-    height: 1.5rem;
-} */
-
 #Game_Over{
     width: 100%;
     font-size: 5rem;
@@ -112,8 +108,12 @@ h1 {
 }
 
 #replayGame, #submit_score{
-    height: 2.5rem;
     align-self: center;
+}
+
+#submit_score{
+    width: 8rem;
+    text-align: center;
 }
 
 footer{
@@ -131,13 +131,24 @@ label{
     font-size: 2rem;
     text-align: center;
     margin-top: -5rem;
+    height: 
+}
+
+#questResult{
+    font-size: 2rem;
+    text-align: center;
+    border:var(--elBorder);
+    background-color: var(--text-background);
+    margin-top: .5rem;
+    color: red;
 }
 
 button{
     border-radius: 5px;
     margin: 5px;
     font-size: 1.5rem;
-    height: 3rem;
+    width: 40%;
+
 }
 
 button:hover{
