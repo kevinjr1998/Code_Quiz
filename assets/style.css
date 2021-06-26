@@ -94,7 +94,7 @@ button{
     font-size: 1.3rem;
     width: 8rem;
     height: 1.5rem;
-    align-self: center;
+    /* align-self: center; */
 }
 /* element holds score */
 #score{
@@ -116,6 +116,10 @@ button{
 }
 
 /* utility css class for float*/
+
+.float_left{
+    float: left;
+}
 
 .float_right{
     float: right;
