@@ -264,6 +264,7 @@ function runGame(event){
 
 function gameOver(){ //game over function
     secondsLeft = 0; //sets timer to 0
+    timer.textContent = "0 seconds left";
     game.textContent = ""; //clears the game element.
     var gameOverEl = document.createElement("section");
     gameOverEl.setAttribute("id", "Game_Over");
@@ -347,14 +348,16 @@ function incorrectAns(event){ //runs incorrect answer event, deducts time from t
 function gameTimer(){ //this is the game timer function, 
     if (secondsLeft == 0){//runs game over function when timer reaches 0
         clearInterval(timerInterval); 
+        timer.textContent = "0 seconds left";
         gameOver();
     } else {
         var timerInterval = setInterval(function(){ //each second, it will update the seconds left with the current amount of time left.
            secondsLeft--;
           timer.textContent = secondsLeft + " seconds left";
 
-           if(secondsLeft < 1) {
+           if(secondsLeft < 0) {
               clearInterval(timerInterval);
+              timer.textContent = "0 seconds left";
               gameOver();
            }
       }, 1000) //this function runs every 1000 milliseconds
