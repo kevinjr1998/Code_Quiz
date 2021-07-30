@@ -11,3 +11,11 @@ The main goal of this task was to create a quiz based around knowledge of JavaSc
 ## Link to Deployed Application
 
 [Link](https://kevinjr1998.github.io/Code_Quiz/)
+
+## License 
+
+MIT
+
+## Contact Info
+
+kevinryner@yahoo.co.uk
