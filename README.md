@@ -6,9 +6,9 @@ The main goal of this task was to create a quiz based around knowledge of JavaSc
 
 ## Screenshots
 
-[Screenshot](./assets/Code_Quiz_Screenshot.png)
+![Screenshot](./assets/Code_Quiz_Screenshot.png)
 
-[Gif](./assets/CodeQuiz.gif)
+![Gif](./assets/CodeQuiz.gif)
 
 ## Link to Deployed Application
 
